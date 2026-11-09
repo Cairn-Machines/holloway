@@ -7,6 +7,16 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ---
 
+## [1.0.391] - 2026-11-09
+### Changed
+- post repo events to the CM Lab Discord channel [skip ci]
+- One format for every Cairn-Machines repo: pushes, PRs, issues, releases and deploy results, sent by a metadata-only workflow to CMLAB_DISCORD_WEBHOOK. It replaces GitHub's native Discord embeds.
+### Docs
+- point links at the Cairn-Machines org
+- The repository moved from montytorr to Cairn-Machines; GitHub redirects the old URLs, but links and clone commands now name the org directly.
+- add the 1.0.390 section
+- v1.0.390 was a manual redeploy with no new commits, so ci-deploy.sh wrote no CHANGELOG section for it, and the release-notes test fails every deploy since.
+
 ## [1.0.390] - 2026-11-09
 ### Changed
 - the repository moved from montytorr to the Cairn-Machines GitHub org; this release is the same code redeployed by hand to prove the deploy runner works from the org, so it has no changes of its own
