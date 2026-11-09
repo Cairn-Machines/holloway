@@ -7,6 +7,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ---
 
+## [1.0.390] - 2026-11-09
+### Changed
+- the repository moved from montytorr to the Cairn-Machines GitHub org; this release is the same code redeployed by hand to prove the deploy runner works from the org, so it has no changes of its own
+
 ## [1.0.389] - 2026-10-31
 ### Changed
 - run the schema and end-to-end Docker checks locally, not in GitHub CI
