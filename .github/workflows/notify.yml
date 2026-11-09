@@ -1,0 +1,88 @@
+name: notify
+
+# Posts this repo's events to its CM Lab Discord channel, in one format for every
+# Cairn-Machines repo. Metadata only: never check out or execute a PR head,
+# workflow artifact or contributor-supplied command in this secret-bearing workflow.
+on:
+  push:
+    branches: ['**']
+  pull_request_target:
+    types: [opened, reopened, closed, ready_for_review]
+  issues:
+    types: [opened, reopened, closed]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  notify:
+    if: github.repository == 'Cairn-Machines/holloway'
+    # GitHub-hosted: this repo has no runner of its own. Metadata only.
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.22.1
+
+      - name: Notify CM Lab
+        continue-on-error: true
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.CMLAB_DISCORD_WEBHOOK }}
+          DISCORD_WEBHOOK_2: ${{ secrets.CMLAB_DISCORD_WEBHOOK_2 }}
+          PROJECT_NAME: "Holloway"
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const event = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+          const name = process.env.PROJECT_NAME;
+          const clean = value => String(value ?? '').replace(/[\r\n\t]+/g, ' ').replace(/[@`*_<>]/g, '').slice(0, 180);
+          const short = value => String(value ?? '').slice(0, 7);
+          const repo = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}`;
+          const kind = process.env.GITHUB_EVENT_NAME;
+          let message;
+          if (kind === 'workflow_run') {
+            const run = event.workflow_run;
+            const status = event.action === 'requested' ? 'started' : run.conclusion;
+            const icon = status === 'success' ? '✅' : status === 'started' ? '🛠️' : status === 'cancelled' ? '⚠️' : '❌';
+            const what = /integ/i.test(run.name) ? 'integration' : 'production';
+            message = status === 'success'
+              ? `${icon} **${name} deployed** (${what}) \`${short(run.head_sha)}\` · ${clean(run.head_branch)}\n${clean(run.name)} passed · <${run.html_url}>`
+              : `${icon} **${name} deploy ${clean(status)}** (${what}) \`${short(run.head_sha)}\` · ${clean(run.head_branch)}\n${clean(run.name)} · <${run.html_url}>`;
+          } else if (kind === 'pull_request_target' || kind === 'issues') {
+            const item = event.pull_request ?? event.issue;
+            const label = event.pull_request ? 'PR' : 'issue';
+            const action = item.merged ? 'merged' : clean(event.action);
+            message = `📋 **${name} ${label} #${item.number} ${action}** · ${clean(item.user.login)}\n${clean(item.title)}\n<${item.html_url}>`;
+          } else if (kind === 'release') {
+            message = `🏷️ **${name} ${clean(event.release.tag_name)} released**\n${clean(event.release.name)}\n<${event.release.html_url}>`;
+          } else if (kind === 'push') {
+            const branch = clean(event.ref?.replace('refs/heads/', ''));
+            const commits = event.commits ?? [];
+            message = event.deleted ? `🗑️ **${name} branch ${branch} deleted**` : `📦 **${name}** · ${commits.length} commits to \`${branch}\`\n${commits.slice(-5).map(c => `• ${short(c.id)} ${clean(c.message.split('\n')[0])}`).join('\n')}\n<${event.compare ?? repo}>`;
+          } else {
+            message = `🔔 **${name} notifications connected**\nPushes, PRs, issues, releases and deploys · <${repo}>`;
+          }
+          const hooks = [...new Set([process.env.DISCORD_WEBHOOK, process.env.DISCORD_WEBHOOK_2].filter(Boolean))];
+          if (!hooks.length) console.log('::warning::No Discord webhook configured');
+          for (let i = 0; i < hooks.length; i++) {
+            // Never print tokens, response bodies or exception messages.
+            let url;
+            try { url = new URL(hooks[i]); } catch { throw new Error('Invalid Discord secret'); }
+            if (url.origin !== 'https://discord.com' || !/^\/api\/webhooks\/\d+\/[\w-]+$/.test(url.pathname)) throw new Error('Invalid Discord secret');
+            url.searchParams.set('wait', 'true');
+            let sent = false;
+            for (let attempt = 0; attempt < 3; attempt++) {
+              try {
+                const response = await fetch(url, { method: 'POST', redirect: 'error', signal: AbortSignal.timeout(8000), headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: 'CM Lab GitHub', content: message.slice(0, 1900), allowed_mentions: { parse: [] } }) });
+                if (response.ok) { sent = true; break; }
+                if (response.status !== 429 && response.status < 500) break;
+              } catch { /* sanitized retry */ }
+              if (attempt < 2) await new Promise(resolve => setTimeout(resolve, 2000));
+            }
+            console.log(sent ? `Discord destination ${i + 1}: delivered` : `::warning::Discord destination ${i + 1}: delivery failed`);
+            if (!sent) process.exitCode = 1;
+          }
+          NODE
