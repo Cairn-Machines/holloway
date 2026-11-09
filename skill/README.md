@@ -175,7 +175,7 @@ Current behavior:
 ## Installation
 
 ```bash
-git clone https://github.com/montytorr/holloway.git
+git clone https://github.com/Cairn-Machines/holloway.git
 cd holloway
 npm run skill:install            # into ~/clawd/skills/holloway
 npm run skill:install -- <dir>   # or somewhere else

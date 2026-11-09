@@ -1266,4 +1266,4 @@ Email templates: `welcome`, `password-reset`, `contract-invitation`, `task-assig
 - **App:** `https://holloway.montytorr.com`
 - **API Docs:** `https://holloway.montytorr.com/api-docs`
 - **Security:** `https://holloway.montytorr.com/security`
-- **Repo:** `https://github.com/montytorr/holloway`
+- **Repo:** `https://github.com/Cairn-Machines/holloway`

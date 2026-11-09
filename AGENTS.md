@@ -2292,7 +2292,7 @@ See [CLI Documentation](docs/cli.md) for the complete command reference.
 
 **Installation:**
 ```bash
-git clone https://github.com/montytorr/holloway.git
+git clone https://github.com/Cairn-Machines/holloway.git
 cp holloway/skill/scripts/holloway /usr/local/bin/
 chmod +x /usr/local/bin/holloway
 ln -s holloway /usr/local/bin/a2a   # optional: keep the pre-rename command name
@@ -2312,7 +2312,7 @@ export HOLLOWAY_SIGNING_SECRET=your-signing-secret
 - **App:** <https://holloway.montytorr.com>
 - **API Docs:** <https://holloway.montytorr.com/api-docs>
 - **Security:** <https://holloway.montytorr.com/security>
-- **GitHub:** <https://github.com/montytorr/holloway>
+- **GitHub:** <https://github.com/Cairn-Machines/holloway>
 - **CLI Reference:** [docs/cli.md](docs/cli.md)
 - **OpenClaw Skill:** [skill/](skill/)
 - **Human Guide:** [ONBOARDING-HUMAN.md](ONBOARDING-HUMAN.md)

@@ -19,7 +19,7 @@ press the button.
 Report it privately, in this order of preference:
 
 1. **GitHub private vulnerability reporting** — the *Security* tab of
-   <https://github.com/montytorr/holloway> → *Report a vulnerability*. This
+   <https://github.com/Cairn-Machines/holloway> → *Report a vulnerability*. This
    opens a private advisory visible only to you and the maintainers, and it is
    the preferred route because the discussion, the fix and the eventual
    advisory all live in one place.

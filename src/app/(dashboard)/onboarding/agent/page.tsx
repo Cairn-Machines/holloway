@@ -274,18 +274,18 @@ signed_request("POST", "/api/v1/contracts", {
                 <ListItem>
                   <strong className={presentation.ink2}>GitHub:</strong>{' '}
                   <a
-                    href="https://github.com/montytorr/holloway"
+                    href="https://github.com/Cairn-Machines/holloway"
                     className={presentation.link1}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    montytorr/holloway
+                    Cairn-Machines/holloway
                   </a>
                 </ListItem>
                 <ListItem>
                   <strong className={presentation.ink2}>CLI script:</strong>{' '}
                   <a
-                    href="https://github.com/montytorr/holloway/tree/main/skill/scripts/holloway"
+                    href="https://github.com/Cairn-Machines/holloway/tree/main/skill/scripts/holloway"
                     className={presentation.link1}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -297,7 +297,7 @@ signed_request("POST", "/api/v1/contracts", {
                 <ListItem>
                   <strong className={presentation.ink2}>OpenClaw skill:</strong>{' '}
                   <a
-                    href="https://github.com/montytorr/holloway/tree/main/skill"
+                    href="https://github.com/Cairn-Machines/holloway/tree/main/skill"
                     className={presentation.link1}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -335,7 +335,7 @@ signed_request("POST", "/api/v1/contracts", {
             >
               Installation
             </p>
-            <CodeBlock>{`git clone https://github.com/montytorr/holloway.git
+            <CodeBlock>{`git clone https://github.com/Cairn-Machines/holloway.git
 cp holloway/skill/scripts/holloway /usr/local/bin/
 chmod +x /usr/local/bin/holloway
 ln -s holloway /usr/local/bin/a2a   # optional: the pre-rename command name
@@ -2377,25 +2377,25 @@ holloway checkpoint <project_id> <task_id> <run_id> --key snapshot --attachment-
                 desc="Dashboard guide for human operators"
               />
               <LinkCard
-                href="https://github.com/montytorr/holloway"
+                href="https://github.com/Cairn-Machines/holloway"
                 title="GitHub Repository"
                 desc="Source code, issues, and documentation"
                 external
               />
               <LinkCard
-                href="https://github.com/montytorr/holloway/blob/main/docs/cli.md"
+                href="https://github.com/Cairn-Machines/holloway/blob/main/docs/cli.md"
                 title="CLI Documentation"
                 desc="Full command reference with examples and flags"
                 external
               />
               <LinkCard
-                href="https://github.com/montytorr/holloway/tree/main/skill/scripts/holloway"
+                href="https://github.com/Cairn-Machines/holloway/tree/main/skill/scripts/holloway"
                 title="CLI Script"
                 desc="Single-file Python CLI with zero dependencies"
                 external
               />
               <LinkCard
-                href="https://github.com/montytorr/holloway/tree/main/skill"
+                href="https://github.com/Cairn-Machines/holloway/tree/main/skill"
                 title="OpenClaw Skill"
                 desc="Drop-in skill for OpenClaw-powered agents"
                 external

@@ -560,7 +560,7 @@ export default function HumanOnboardingPage() {
             <p className={presentation.copy3}>
               The{' '}
               <a
-                href="https://github.com/montytorr/holloway/blob/main/docs/reputation-scoring-spec.md"
+                href="https://github.com/Cairn-Machines/holloway/blob/main/docs/reputation-scoring-spec.md"
                 className={presentation.link1}
                 target="_blank"
                 rel="noopener"
@@ -1244,7 +1244,7 @@ export default function HumanOnboardingPage() {
               </a>{' '}
               for the full endpoint reference, or the{' '}
               <a
-                href="https://github.com/montytorr/holloway/blob/main/docs/cli.md"
+                href="https://github.com/Cairn-Machines/holloway/blob/main/docs/cli.md"
                 className={presentation.link1}
                 target="_blank"
                 rel="noopener"
@@ -1434,19 +1434,19 @@ export default function HumanOnboardingPage() {
                 desc="Integration guide for agent developers"
               />
               <LinkCard
-                href="https://github.com/montytorr/holloway"
+                href="https://github.com/Cairn-Machines/holloway"
                 title="GitHub Repository"
                 desc="Source code, issues, and documentation"
                 external
               />
               <LinkCard
-                href="https://github.com/montytorr/holloway/blob/main/docs/cli.md"
+                href="https://github.com/Cairn-Machines/holloway/blob/main/docs/cli.md"
                 title="CLI Documentation"
                 desc="Full command reference with examples and flags"
                 external
               />
               <LinkCard
-                href="https://github.com/montytorr/holloway/tree/main/skill"
+                href="https://github.com/Cairn-Machines/holloway/tree/main/skill"
                 title="OpenClaw Skill"
                 desc="Drop-in skill for OpenClaw-powered agents"
                 external

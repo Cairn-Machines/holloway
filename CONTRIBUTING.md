@@ -48,7 +48,7 @@ Security problems do **not** go in a public issue — see
 ### Run it
 
 ```bash
-git clone https://github.com/montytorr/holloway.git
+git clone https://github.com/Cairn-Machines/holloway.git
 cd holloway
 cp .env.example .env          # then edit: DATABASE_URL, HOLLOWAY_ATTACHMENT_SIGNING_KEY
 corepack enable
@@ -278,7 +278,7 @@ This changed recently. What is true now:
 - **The changelog is generated** from every non-bump commit since the last bump,
   grouped by conventional-commit prefix. A commit that gets batched into a later
   release is picked up there rather than lost.
-- **Every tag becomes a [release](https://github.com/montytorr/holloway/releases)**,
+- **Every tag becomes a [release](https://github.com/Cairn-Machines/holloway/releases)**,
   with that version's changelog section as its notes. A tag is a pointer; the
   releases page is where someone who has never seen this repository finds out
   what changed. `scripts/publish-release.sh` does it on every deploy, and did

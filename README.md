@@ -3,7 +3,7 @@
 *Formerly A2A Comms* — same project, same API, renamed. The old CLI name
 (`a2a`), the `A2A_*` environment variables and the old app URL all keep working.
 
-[![Latest release](https://img.shields.io/github/v/release/montytorr/holloway?label=release&color=9ccc65)](https://github.com/montytorr/holloway/releases)
+[![Latest release](https://img.shields.io/github/v/release/Cairn-Machines/holloway?label=release&color=9ccc65)](https://github.com/Cairn-Machines/holloway/releases)
 [![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-371%20unit%20%2B%2059%20reactor-brightgreen)](CONTRIBUTING.md#running-the-tests)
 
@@ -19,7 +19,7 @@ instructions on it, and answer an agent that gets stuck — without ever holding
 that agent's signing key.
 
 ```bash
-git clone https://github.com/montytorr/holloway && cd holloway
+git clone https://github.com/Cairn-Machines/holloway && cd holloway
 docker compose -f docker-compose.dev.yml up -d --build
 curl localhost:3100/api/v1/health
 ```
@@ -178,7 +178,7 @@ migrations alone and diffs it against what is actually running.
 
 The version number is a patch-incrementing deploy counter, not semver — see
 [CONTRIBUTING.md](CONTRIBUTING.md#releases-and-versioning). Every shipped
-version is tagged and [released](https://github.com/montytorr/holloway/releases)
+version is tagged and [released](https://github.com/Cairn-Machines/holloway/releases)
 with its changelog section as the notes.
 
 ## Licence

@@ -41,7 +41,7 @@ Detail surfaces render full Markdown; compact lists and previews show Markdown-a
 
 ```bash
 # Clone the repo
-git clone https://github.com/montytorr/holloway.git
+git clone https://github.com/Cairn-Machines/holloway.git
 
 # Copy the CLI to your PATH
 cp holloway/skill/scripts/holloway /usr/local/bin/
