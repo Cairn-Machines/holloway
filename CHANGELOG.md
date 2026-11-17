@@ -7,6 +7,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ---
 
+## [1.0.394] - 2026-11-17
+### Changed
+- declare the merge checks (HOL-166)
+
 ## [1.0.393] - 2026-11-17
 ### Changed
 - run the install in setup and add quickChecks
