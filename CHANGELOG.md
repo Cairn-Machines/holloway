@@ -7,6 +7,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ---
 
+## [1.0.392] - 2026-11-17
+### Changed
+- merge: fix(deps): next and eslint-config-next 16.4.6 (security advisory blocks the build) (HOL-168, goal HOL-166)
+### Fixed
+- next and eslint-config-next 16.4.6 (security advisory blocks the build)
+
 ## [1.0.391] - 2026-11-09
 ### Changed
 - post repo events to the CM Lab Discord channel [skip ci]
