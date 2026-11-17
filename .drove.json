@@ -1,4 +1,10 @@
 {
+  "setup": [
+    "pnpm install --frozen-lockfile"
+  ],
+  "quickChecks": [
+    "pnpm lint"
+  ],
   "checks": [
     "pnpm install --frozen-lockfile",
     "pnpm lint",
