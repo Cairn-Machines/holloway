@@ -7,6 +7,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ---
 
+## [1.0.393] - 2026-11-17
+### Changed
+- run the install in setup and add quickChecks
+- merge: 6f0208638022454e6a6716c2a1a0c0372aaef8d3 into worktree-w-config
+- merge: chore(drove): run the install in setup and add quickChecks (HOL-167, goal HOL-166)
+
 ## [1.0.392] - 2026-11-17
 ### Changed
 - merge: fix(deps): next and eslint-config-next 16.4.6 (security advisory blocks the build) (HOL-168, goal HOL-166)
