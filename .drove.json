@@ -6,11 +6,12 @@
     "pnpm lint"
   ],
   "checks": [
-    "pnpm install --frozen-lockfile",
     "pnpm lint",
     "pnpm test",
     "pnpm build",
-    "pnpm verify:schema",
-    "pnpm verify:e2e"
+    "pnpm verify:schema"
+  ],
+  "e2eSmoke": [
+    "pnpm build && pnpm verify:e2e"
   ]
 }
